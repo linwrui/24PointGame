@@ -110,7 +110,7 @@ namespace _24Game
                                         {
                                             string left = (aii == 2 || aii == 5) ? $"({a2}{resultExps[aii]}{a1})" : $"({a1}{resultExps[aii]}{a2})";
                                             string right = (bii == 2 || bii == 5) ? $"({a4}{resultExps[bii]}{a3})" : $"({a3}{resultExps[bii]}{a4})";
-                                            return $"Success!({((abi == 2 || abi == 5) ? right : left)}){resultExps[abi]}({((abi == 2 || abi == 5) ? left : right)})=24";
+                                            return $"Success!{((abi == 2 || abi == 5) ? right : left)}{resultExps[abi]}{((abi == 2 || abi == 5) ? left : right)}=24";
                                         }
                                         else if (OperatesOneThree(a1, a2, a3, a4, out aii, out bii, out abi))
                                         {
