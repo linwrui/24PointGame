@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * 作者：林文锐
+ * 时间：2017.02.05
+ * 功能：游戏算24点
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
