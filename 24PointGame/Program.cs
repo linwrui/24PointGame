@@ -106,7 +106,7 @@ namespace _24Game
                                     {
                                         int a4 = a[di];
                                         int aii = -1; int bii = -1; int abi = -1; //三个Index，用以还原两个数之间的运算符
-                                        if (OperatesTwoTwo(a1, a2, a3, a4, out aii, out bii, out abi))
+                                        if (OperatesTwoTwo(a1, a2, a3, a4, out aii, out bii, out abi))//注意：这里如果有结果匹配需要判断是否需要倒换两个数的运算位置，比如a1-a2和a2-a1的结果是不一样的
                                         {
                                             string left = (aii == 2 || aii == 5) ? $"({a2}{resultExps[aii]}{a1})" : $"({a1}{resultExps[aii]}{a2})";
                                             string right = (bii == 2 || bii == 5) ? $"({a4}{resultExps[bii]}{a3})" : $"({a3}{resultExps[bii]}{a4})";
