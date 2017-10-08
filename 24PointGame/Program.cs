@@ -3,6 +3,7 @@
  * 时间：2017.02.05
  * 功能：游戏算24点
  */
+using _24PointGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,8 @@ namespace _24Game
 
             }
             string[] operateNums = nums.Split(',');
-            string result = Operates(new Tuple<string, string, string, string>(operateNums[0], operateNums[1], operateNums[2], operateNums[3]));
+            //string result = Operates(new Tuple<string, string, string, string>(operateNums[0], operateNums[1], operateNums[2], operateNums[3]));
+            string result = new CardOperator(new int[] { Convert.ToInt32(operateNums[0]), Convert.ToInt32(operateNums[1]), Convert.ToInt32(operateNums[2]), Convert.ToInt32(operateNums[3]) }).Operate(24);
             Console.WriteLine(result);
             Console.WriteLine();
             GO();
