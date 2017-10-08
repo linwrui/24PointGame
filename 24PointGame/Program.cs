@@ -1,7 +1,9 @@
 ﻿/*
  * 作者：林文锐
  * 时间：2017.02.05
+ * 修正：2017.10.08
  * 功能：游戏算24点
+ * 使用：输入4个数字（每输入一个后按回车，输入4个数字后自动返回是否有符合条件的运算表达式）
  */
 using _24PointGame;
 using System;
@@ -20,9 +22,7 @@ namespace _24Game
         private static Dictionary<int, string> resultExps = new Dictionary<int, string>();
         static void Main(string[] args)
         {
-            InitExps();
             GO();
-
         }
 
         /// <summary>
@@ -48,13 +48,15 @@ namespace _24Game
 
             }
             string[] operateNums = nums.Split(',');
-            //string result = Operates(new Tuple<string, string, string, string>(operateNums[0], operateNums[1], operateNums[2], operateNums[3]));
+            //string result_check = Operates(new Tuple<string, string, string, string>(operateNums[0], operateNums[1], operateNums[2], operateNums[3]));
             string result = new CardOperator(new int[] { Convert.ToInt32(operateNums[0]), Convert.ToInt32(operateNums[1]), Convert.ToInt32(operateNums[2]), Convert.ToInt32(operateNums[3]) }).Operate(24);
             Console.WriteLine(result);
+            //Console.WriteLine(result_check);
             Console.WriteLine();
             GO();
         }
 
+#if failed //旧的方法
         /// <summary>
         /// 初始化运算符和Index的关联
         /// </summary>
@@ -220,5 +222,7 @@ namespace _24Game
             double a2 = v[1];
             return new double[] { a1 + a2, a1 - a2, a2 - a1, a1 * a2, a2 == 0 ? Single.NaN : (a1 / a2), a2 / a1 };//减法和除法运算时两个数位置相倒但未通知到前台
         }
+    
+#endif
     }
 }

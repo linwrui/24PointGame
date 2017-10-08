@@ -43,8 +43,16 @@ namespace _24PointGame
                                     if (di != ai && di != bi && di != ci)
                                     {
                                         int a4 = _cards[di];
-                                        if (OperateTwoTwo(new int[] { a1, a2, a3, a4 }, checkResult, out result)) break;
-                                        if (OperateTreeOne(new int[] { a1, a2, a3, a4 }, checkResult, out result)) break;
+                                        if (OperateTwoTwo(new int[] { a1, a2, a3, a4 }, checkResult, out result))
+                                        {
+                                            //Console.WriteLine(result);
+                                            return result;
+                                        }
+                                        if (OperateTreeOne(new int[] { a1, a2, a3, a4 }, checkResult, out result))
+                                        {
+                                            //Console.WriteLine(result);
+                                            return result;
+                                        }
                                     }
                                 }
                             }
@@ -52,7 +60,7 @@ namespace _24PointGame
                     }
                 }
             }
-            return string.IsNullOrEmpty(result) ? "Failed!" : result;
+            return "Complete!" ;
         }
 
         /// <summary>
@@ -75,7 +83,7 @@ namespace _24PointGame
                         double h = Math.Abs(ab[abi].GetResult() - checkResult);
                         if (h < Threadhold)
                         {
-                            expression = ab[abi].GetExpressionString($"({a.GetExpressionString()})", $"({b.GetExpressionString()})");
+                            expression = ab[abi].GetExpressionString(a.GetExpressionString(), b.GetExpressionString())+$"={ab[abi].GetResult()}";
                             return true;
                         }
                     }
@@ -105,7 +113,7 @@ namespace _24PointGame
                     {
                         if (Math.Abs(ab[abi].GetResult() - checkResult) < Threadhold)
                         {
-                            expression = ab[abi].GetExpressionString($"({b.GetExpressionString($"({a.GetExpressionString()})", b.Num_right)})", cards[3]);
+                            expression = ab[abi].GetExpressionString(b.GetExpressionString(a.GetExpressionString(), b.Num_b), cards[3]) + $"={ab[abi].GetResult()}";
                             return true;
                         }
                     }
