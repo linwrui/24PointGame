@@ -25,6 +25,7 @@ namespace _24PointGame
         public string Operate(double checkResult)
         {
             string result = "";
+            List<string> results = new List<string>();
             for (int ai = 0; ai < _cards.Count(); ai++)
             {
                 int a1 = _cards[ai];
@@ -45,13 +46,21 @@ namespace _24PointGame
                                         int a4 = _cards[di];
                                         if (OperateTwoTwo(new int[] { a1, a2, a3, a4 }, checkResult, out result))
                                         {
-                                            //Console.WriteLine(result);
-                                            return result;
+                                            if (!results.Contains(result))
+                                            {
+                                                Console.WriteLine(result);
+                                                results.Add(result);
+                                            }
+                                            //return result;
                                         }
                                         if (OperateTreeOne(new int[] { a1, a2, a3, a4 }, checkResult, out result))
                                         {
-                                            //Console.WriteLine(result);
-                                            return result;
+                                            if (!results.Contains(result))
+                                            {
+                                                Console.WriteLine(result);
+                                                results.Add(result);
+                                            }
+                                            // return result;
                                         }
                                     }
                                 }
@@ -60,7 +69,7 @@ namespace _24PointGame
                     }
                 }
             }
-            return "Complete!" ;
+            return $"计算完成，共有 {results.Count} 种运算方式。" ;
         }
 
         /// <summary>
